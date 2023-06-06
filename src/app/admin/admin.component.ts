@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AdminService } from '../admin.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-admin',
@@ -11,10 +9,6 @@ import { MatTableDataSource } from '@angular/material/table';
 export class AdminComponent implements OnInit {
 
   users: any;
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
-  dataSource!: MatTableDataSource<any>;
-  displayedColumns = ['checkBox', 'name', 'email', 'role', 'action'];
   deleteAll: boolean = false;
   filteredUsers: any[] = [];
   page = 1;
@@ -37,9 +31,6 @@ export class AdminComponent implements OnInit {
         }
         this.filteredUsers = JSON.parse(JSON.stringify(this.users));
         console.log(this.filteredUsers);
-        
-        this.dataSource = new MatTableDataSource<any>(this.users);
-        this.dataSource.paginator = this.paginator;
       }
     })
   }
