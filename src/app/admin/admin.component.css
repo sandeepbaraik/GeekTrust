@@ -1,0 +1,39 @@
+.container {
+    padding-top: 20px;
+}
+
+table {
+    width: 100%;
+}
+
+.table-header {
+    color: black;
+    font-weight: bold;
+}
+
+.check-icon {
+    font-size: 25px;
+}
+
+.delete-icon {
+    color: red;
+}
+
+.selected-row {
+    background-color: grey;
+}
+
+ngb-pagination /deep/ .page-item.disabled .page-link {
+    display: none;
+}
+
+ngb-pagination ::ng-deep a {
+    margin: 0px 10px 0px 10px;
+    border-radius: 50px;
+  }
+  
+  ngb-pagination ::ng-deep .page-item:first-child .page-link,
+  ngb-pagination ::ng-deep .page-item:last-child .page-link{
+    border-radius: 50px ;
+  }
+  
