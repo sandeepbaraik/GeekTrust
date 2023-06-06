@@ -71,7 +71,9 @@ export class AdminComponent implements OnInit {
     let size = this.filteredUsers.length;
     for (let i = 0; i < size; i++) {
       if (this.filteredUsers[i].checked) {
-        this.users.splice(this.users.indexOf(this.filteredUsers[i]), 1);
+        let id = this.filteredUsers[i].id;
+        let idx = this.users.findIndex((item: { id: any; }) => item.id == id);
+        this.users.splice(idx, 1);
         this.filteredUsers.splice(i, 1);
         i--;
         size = this.filteredUsers.length;
@@ -81,8 +83,12 @@ export class AdminComponent implements OnInit {
   }
 
   deleteSingleUser(index: number) {
-    this.users.splice(this.users.indexOf(this.filteredUsers[index]), 1);
+    let id = this.filteredUsers[index].id;
+    let idx = this.users.findIndex((item: { id: any; }) => item.id == id);
+    this.users.splice(idx, 1);
     this.filteredUsers.splice(index, 1);
+    
+    
   }
 
   loadPage() {
